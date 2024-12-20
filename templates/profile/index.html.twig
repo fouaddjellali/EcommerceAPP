@@ -1,0 +1,7 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <p>Email : {{ user.email }}</p>
+    <p>Rôles : {{ user.roles | join(', ') }}</p>
+{% endblock %}

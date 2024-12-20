@@ -1,0 +1,15 @@
+{% if app.user %}
+{% if 'ROLE_ADMIN' in app.user.roles %}
+    <a href="{{ path('admin_dashboard') }}">Accéder à l'admin</a>
+{% elseif 'ROLE_USER' in app.user.roles %}
+    <a href="{{ path('profile') }}">Accéder à votre profil</a>
+{% elseif 'ROLE_BANNED' in app.user.roles %}
+    <p>Vous êtes banni. Contactez l'administration.</p>
+{% endif %}
+    <p>Bienvenue, {{ app.user.email }}</p>
+        <p>Bienvenue, {{ app.user.roles | join(', ')  }}</p>
+    <a href="{{ path('app_logout') }}">Se déconnecter</a>
+        <p>Changer mot de passe <a href="{{ path('update_password') }}">changer</a></p>
+{% else %}
+    <a href="{{ path('app_login') }}">Se connecter</a>
+{% endif %}

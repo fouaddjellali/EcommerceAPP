@@ -1,0 +1,34 @@
+
+{% block body %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card mt-5">
+                <div class="card-header text-center bg-primary text-white">
+                    <h4>Se connecter</h4>
+                </div>
+                <div class="card-body">
+                    {% if error %}
+                        <div class="alert alert-danger" role="alert">
+                            {{ error.messageKey|trans(error.messageData, 'security') }}
+                        </div>
+                    {% endif %}
+                    <form method="post">
+                        <div class="form-group mb-3">
+                            <label for="email" class="form-label">Adresse Email</label>
+                            <input type="email" id="email" name="_email" class="form-control" required placeholder="Entrez votre email">
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="password" class="form-label">Mot de passe</label>
+                            <input type="password" id="password" name="_password" class="form-control" required placeholder="Entrez votre mot de passe">
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Se connecter</button>
+                    </form>
+                           <p>Mot de passe oublié <a href="{{ path('app_forgot_password') }}">changer</a></p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
