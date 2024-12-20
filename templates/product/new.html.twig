@@ -1,16 +1,6 @@
-
-{% block title %}New Product{% endblock %}
-
-{% block body %}
-    <h1>Create new Product</h1>
-
-    {{ include('product/_form.html.twig') }}
-
-    <a href="{{ path('app_product_index') }}">back to list</a>
-{% endblock %}
 {% extends 'base.html.twig' %}
 
-{% block title %}Créer un Nouveau Produit{% endblock %}
+{% block title %}Nouveau Produit{% endblock %}
 
 {% block body %}
 <div class="content-header">
@@ -31,7 +21,7 @@
 <div class="content">
     <div class="container-fluid">
         <div class="card">
-            <div class="card-header">
+            <div class="card-header bg-primary text-white">
                 <h3 class="card-title">Formulaire de Création</h3>
             </div>
             <div class="card-body">
