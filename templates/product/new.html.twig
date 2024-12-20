@@ -8,3 +8,36 @@
 
     <a href="{{ path('app_product_index') }}">back to list</a>
 {% endblock %}
+{% extends 'base.html.twig' %}
+
+{% block title %}Créer un Nouveau Produit{% endblock %}
+
+{% block body %}
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0">Créer un Nouveau Produit</h1>
+            </div>
+            <div class="col-sm-6 text-right">
+                <a href="{{ path('app_product_index') }}" class="btn btn-secondary">
+                    <i class="fas fa-arrow-left"></i> Retour à la liste
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="content">
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Formulaire de Création</h3>
+            </div>
+            <div class="card-body">
+                {{ include('product/_form.html.twig') }}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

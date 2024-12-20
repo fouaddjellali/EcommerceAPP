@@ -33,7 +33,7 @@ class Order
         return $this->id;
     }
 
-    public function getOrderDate(): ?\DateTimeImmutable
+    public function getOrderDate()
     {
         return $this->orderDate;
     }

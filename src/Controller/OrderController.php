@@ -12,7 +12,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
 
-#[IsGranted('ADMIN')]
+#[IsGranted('ROLE_ADMIN')]
 #[Route('/order')]
 final class OrderController extends AbstractController
 {

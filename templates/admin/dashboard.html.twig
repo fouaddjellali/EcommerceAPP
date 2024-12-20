@@ -1,12 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tableau de bord Administrateur{% endblock %}
 
 {% block body %}
-    <h1>Tableau de bord Administrateur</h1>
-    <p>Bienvenue sur le tableau de bord Admin.</p>
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0">Tableau de bord Administrateur</h1>
+                <p>Bienvenue sur le tableau de bord Admin.</p>
+            </div>
+        </div>
+    </div>
+</div>
 
-    <h2>Gestion des entités</h2>
-    <ul>
-        <li><a href="{{ path('app_category_index') }}">Gestion des Catégories</a></li>
-        <li><a href="{{ path('app_product_index') }}">Gestion des Produits</a></li>
-        <li><a href="{{ path('app_order_index') }}">Gestion des Commandes</a></li>
-    </ul>
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Gestion des catégories -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <i class="fas fa-tags fa-3x text-primary mb-3"></i>
+                        <h5 class="card-title">Gestion des Catégories</h5>
+                        <a href="{{ path('app_category_index') }}" class="btn btn-primary">Voir</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gestion des produits -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <i class="fas fa-box fa-3x text-success mb-3"></i>
+                        <h5 class="card-title">Gestion des Produits</h5>
+                        <a href="{{ path('app_product_index') }}" class="btn btn-success">Voir</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gestion des commandes -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <i class="fas fa-shopping-cart fa-3x text-warning mb-3"></i>
+                        <h5 class="card-title">Gestion des Commandes</h5>
+                        <a href="{{ path('app_order_index') }}" class="btn btn-warning">Voir</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}

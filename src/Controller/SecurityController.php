@@ -123,13 +123,10 @@ class SecurityController extends AbstractController
                 'attr' => ['class' => 'btn btn-primary w-100'],
             ])
             ->getForm();
-
         $form->handleRequest($request);
-
         if ($form->isSubmitted() && $form->isValid()) {
             $oldPassword = $form->get('old_password')->getData();
             $newPassword = $form->get('new_password')->getData();
-
             // Vérifiez si l'ancien mot de passe est correct
             if (!$passwordHasher->isPasswordValid($user, $oldPassword)) {
                 $this->addFlash('danger', 'L\'ancien mot de passe est incorrect.');

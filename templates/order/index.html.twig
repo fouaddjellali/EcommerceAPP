@@ -1,34 +1,64 @@
-
-{% block title %}Order index{% endblock %}
-
+{% extends 'base.html.twig' %}
+{% block title %}Liste des Commandes{% endblock %}
 {% block body %}
-    <h1>Order index</h1>
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>OrderDate</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for order in orders %}
-            <tr>
-                <td>{{ order.id }}</td>
-                <td>{{ order.orderDate ? order.orderDate|date('Y-m-d H:i:s') : '' }}</td>
-                <td>
-                    <a href="{{ path('app_order_show', {'id': order.id}) }}">show</a>
-                    <a href="{{ path('app_order_edit', {'id': order.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="3">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('app_order_new') }}">Create new</a>
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0">Liste des Commandes</h1>
+            </div>
+            <div class="col-sm-6 text-right">
+                <a href="{{ path('app_order_new') }}" class="btn btn-primary">
+                    <i class="fas fa-plus"></i> Créer une nouvelle commande
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="content">
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Commandes</h3>
+            </div>
+            <div class="card-body">
+                <table class="table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th style="width: 10%;">Id</th>
+                            <th style="width: 70%;">Date de commande</th>
+                            <th style="width: 20%;" class="text-center">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for order in orders %}
+                        <tr>
+                            <td>{{ order.id }}</td>
+                            <td>
+                                {% if order.orderDate is not null %}
+                                    {{ order.orderDate|date('Y-m-d H:i:s') }}
+                                {% else %}
+                                    Non spécifiée
+                                {% endif %}
+                            </td>
+                            <td class="text-center">
+                                <a href="{{ path('app_order_show', {'id': order.id}) }}" class="btn btn-info btn-sm">
+                                    <i class="fas fa-eye"></i> Voir
+                                </a>
+                                <a href="{{ path('app_order_edit', {'id': order.id}) }}" class="btn btn-warning btn-sm">
+                                    <i class="fas fa-edit"></i> Modifier
+                                </a>
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="3" class="text-center">Aucune commande trouvée</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
