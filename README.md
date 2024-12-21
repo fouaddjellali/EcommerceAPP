@@ -3,7 +3,7 @@
 
 ## Application Symfony - Instructions d'utilisation
 
-Cette application Symfony utilise une base de données SQLite intégrée, ce qui signifie qu'il n'est pas nécessaire de configurer une base de données externe. Tout ce dont vous avez besoin est inclus dans le projet pour une mise en route rapide et facile.
+Cette application Symfony est une plateforme e-commerce utilisant une base de données SQLite intégrée. Cela signifie qu'il n'est pas nécessaire de configurer une base de données externe. Tout ce dont vous avez besoin est inclus dans le projet pour une mise en route rapide et facile.
 
 ### Prérequis
 
@@ -38,7 +38,7 @@ Cette application Symfony utilise une base de données SQLite intégrée, ce qui
    php bin/console doctrine:fixtures:load
    ```
    Cette commande crée automatiquement :
-   - Les tables nécessaires pour l'application
+   - Les entités principales suivantes : `Commande`, `Produit`, `Categorie`, `Commentaire`.
    - Trois utilisateurs pour tester les différents cas d'utilisation :
      - **Admin** : `role_admin@example.com`
      - **Banned** : `role_banned@example.com`
@@ -52,6 +52,47 @@ Cette application Symfony utilise une base de données SQLite intégrée, ce qui
    ```
    Accédez à l'application via [http://localhost:8000](http://localhost:8000).
 
+### Fonctionnalités principales
+
+#### Gestion des utilisateurs
+
+- **Authentification complète** :
+  - Connexion avec email et mot de passe.
+  - Réinitialisation du mot de passe (mot de passe oublié et reset).
+  - Modification du mot de passe pour les utilisateurs connectés.
+- **Rôles utilisateur** :
+  - `ADMIN` : accès complet, y compris la gestion de l'administration.
+  - `USER` : accès au profil utilisateur et aux fonctionnalités e-commerce.
+  - `BANNED` : accès restreint avec affichage d'un message de bannissement.
+
+#### Gestion du contenu dynamique
+
+- Affichage adapté en fonction de l'état de connexion :
+  - Si l'utilisateur est connecté, affichage de son nom et prénom.
+  - Si l'utilisateur est non connecté, affichage d'un bouton "Se connecter".
+  - Si l'utilisateur est connecté, affichage d'un bouton "Se déconnecter".
+- Affichage en fonction des rôles :
+  - **ADMIN** : accès à un bouton "Admin" pour gérer l'administration.
+  - **USER** : accès à un bouton "Profil" pour gérer son profil.
+  - **BANNED** : affichage d'un message expliquant le bannissement et restriction des pages.
+
+#### Gestion des entités e-commerce
+
+- Création, lecture, mise à jour et suppression (CRUD) pour les entités suivantes :
+  - `Commande`
+  - `Produit`
+  - `Categorie`
+  - `Commentaire`
+
+#### Design et visuels
+
+- Utilisation des assets **Admin LTE** pour un design professionnel et intuitif.
+
+#### Sécurisation
+
+- Formulaires et routes sécurisés pour éviter tout accès non autorisé.
+- Les routes liées au tableau de bord (dashboard) sont protégées et accessibles uniquement aux utilisateurs ayant le rôle `ADMIN`.
+
 ### Utilisateurs créés
 
 | Rôle        | Email                    | Mot de passe |
@@ -59,12 +100,6 @@ Cette application Symfony utilise une base de données SQLite intégrée, ce qui
 | Administrateur | role_admin@example.com | password     |
 | Banni       | role_banned@example.com  | password     |
 | Utilisateur | role_user@example.com    | password     |
-
-### Fonctionnalités
-
-- Base de données SQLite légère et portable.
-- Données de test préconfigurées grâce aux fixtures.
-- Prise en charge des rôles utilisateur : Admin, Banned, User.
 
 ### Notes supplémentaires
 
@@ -75,6 +110,3 @@ Cette application Symfony utilise une base de données SQLite intégrée, ce qui
   php bin/console doctrine:fixtures:load
   ```
 
-- Pour tester les différents cas d'utilisation, connectez-vous avec les emails et le mot de passe fournis ci-dessus.
-
-Bonne exploration de l'application !
