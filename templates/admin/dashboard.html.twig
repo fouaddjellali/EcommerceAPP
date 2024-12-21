@@ -18,7 +18,7 @@
     <div class="container-fluid">
         <div class="row">
             <!-- Gestion des catégories -->
-            <div class="col-lg-4 col-md-6">
+            <div class="col-lg-4 col-md-4">
                 <div class="card">
                     <div class="card-body text-center">
                         <i class="fas fa-tags fa-3x text-primary mb-3"></i>
@@ -29,7 +29,7 @@
             </div>
 
             <!-- Gestion des produits -->
-            <div class="col-lg-4 col-md-6">
+            <div class="col-lg-4 col-md-4">
                 <div class="card">
                     <div class="card-body text-center">
                         <i class="fas fa-box fa-3x text-success mb-3"></i>
@@ -40,12 +40,24 @@
             </div>
 
             <!-- Gestion des commandes -->
-            <div class="col-lg-4 col-md-6">
+            <div class="col-lg-4 col-md-4">
                 <div class="card">
                     <div class="card-body text-center">
                         <i class="fas fa-shopping-cart fa-3x text-warning mb-3"></i>
                         <h5 class="card-title">Gestion des Commandes</h5>
                         <a href="{{ path('app_order_index') }}" class="btn btn-warning">Voir</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Gestion des commandes -->
+            <div class="col-lg-4 col-md-4">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <i class="fas fa-shopping-cart fa-3x text-warning mb-3"></i>
+                        <h5 class="card-title">Gestion des Commentaires</h5>
+                        <a href="{{ path('app_comment_index') }}" class="btn btn-danger">Voir</a>
                     </div>
                 </div>
             </div>
