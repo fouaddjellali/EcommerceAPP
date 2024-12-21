@@ -7,11 +7,13 @@
         {% if 'ROLE_ADMIN' in app.user.roles %}
             <p>Vous êtes administrateur. <a href="{{ path('admin_dashboard') }}">Accéder au tableau de bord admin</a></p>
         {% elseif 'ROLE_USER' in app.user.roles %}
-            <p>Vous êtes utilisateur. <a href="{{ path('user_profile') }}">Accéder à votre profil</a></p>
+            <p>Vous êtes utilisateur. <a href="{{ path('profile') }}">Accéder à votre profil</a></p>
         {% elseif 'ROLE_BANNED' in app.user.roles %}
             <p>Votre compte est actuellement banni. Contactez l'administration pour plus d'informations.</p>
         {% endif %}
-   
+        <a href="{{ path('update_password') }}">Changer mot de passe</a>
+        <br>
+          <br>
         <a href="{{ path('app_logout') }}">Se déconnecter</a>
     {% else %}
         <p>Vous n'êtes pas connecté. <a href="{{ path('app_login') }}">Se connecter</a></p>

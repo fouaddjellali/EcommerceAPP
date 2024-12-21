@@ -70,7 +70,6 @@ class SecurityController extends AbstractController
 
             return $this->redirectToRoute('app_login');
         }
-
         return $this->render('security/request_reset_password.html.twig');
     }
     #[Route('/reset-password/{token}', name: 'app_reset_password')]
