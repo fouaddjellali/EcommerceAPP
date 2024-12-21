@@ -15,7 +15,7 @@ Cette application Symfony est une plateforme e-commerce utilisant une base de do
 
 1. **Cloner le projet**
    ```bash
-   git clone <URL_DU_PROJET>
+   git clone git@github.com:fouaddjellali/EcommerceAPP.git
    cd <NOM_DU_PROJET>
    ```
 
